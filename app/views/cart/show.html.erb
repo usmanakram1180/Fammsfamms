@@ -1,0 +1,32 @@
+ <div class="hero_area">
+         <!-- header section strats -->
+         <%= render 'shared/header' %>
+         <!-- end header section -->
+      </div>
+      <!-- inner page section -->
+      <section class="inner_page_head">
+         <div class="container_fuild">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="full">
+                     <h3>Cart</h3>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- end inner page section -->   
+      <div class="container">  
+<%= turbo_frame_tag "cart" do %>
+
+<% if @cart.orderables.count > 0 %>
+<%= render partial: 'orderables', locals: { orderables: @orderables } %>
+<% else %>
+<p>Your cart is empty</p>
+<% end %>
+<% end %>
+</div>
+<%= render "shared/footer" %>
+
+
+

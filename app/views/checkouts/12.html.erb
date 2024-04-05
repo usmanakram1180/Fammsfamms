@@ -1,0 +1,219 @@
+<div class="hero_area">
+         <!-- header section strats -->
+        <%= render 'shared/header' %>
+         <!-- end header section -->
+</div>
+
+<!-- app/views/checkout.html.erb -->
+
+<section class="bg-light py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-8 col-lg-8 mb-4">
+        <div class="card mb-4 border shadow-0">
+          <div class="p-4 d-flex justify-content-between">
+            <div class="">
+              <h5>Have an account?</h5>
+              <p class="mb-0 text-wrap ">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+            </div>
+            <div class="d-flex align-items-center justify-content-center flex-column flex-md-row">
+              <%= link_to "Register", "#", class: "btn btn-outline-primary me-0 me-md-2 mb-2 mb-md-0 w-100" %>
+              <%= link_to "Sign in", "#", class: "btn btn-primary shadow-0 text-nowrap w-100" %>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checkout -->
+        <div class="card shadow-0 border">
+          <div class="p-4">
+            <h5 class="card-title mb-3">Guest checkout</h5>
+            <div class="row">
+              <div class="col-6 mb-3">
+                <p class="mb-0">First name</p>
+                <div class="form-outline">
+                  <%= text_field_tag "first_name", nil, id: "first_name", class: "form-control", placeholder: "Type here" %>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <p class="mb-0">Last name</p>
+                <div class="form-outline">
+                  <%= text_field_tag "last_name", nil, id: "last_name", class: "form-control", placeholder: "Type here" %>
+                </div>
+              </div>
+
+              <div class="col-6 mb-3">
+                <p class="mb-0">Phone</p>
+                <div class="form-outline">
+                  <%= text_field_tag "phone", nil, id: "phone", value: "+48 ", class: "form-control" %>
+                </div>
+              </div>
+
+              <div class="col-6 mb-3">
+                <p class="mb-0">Email</p>
+                <div class="form-outline">
+                  <%= email_field_tag "email", nil, id: "email", class: "form-control", placeholder: "example@gmail.com" %>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-check">
+              <%= check_box_tag "news_subscription", "yes", true, id: "flexCheckDefault" %>
+              <%= label_tag "flexCheckDefault", "Keep me up to date on news", class: "form-check-label" %>
+            </div>
+
+            <hr class="my-4" />
+
+            <h5 class="card-title mb-3">Shipping info</h5>
+
+            <div class="row mb-3">
+              <div class="col-lg-4 mb-3">
+                <!-- Default checked radio -->
+                <div class="form-check h-100 border rounded-3">
+                  <div class="p-3">
+                    <%= radio_button_tag "delivery_type", "express", true, id: "flexRadioDefault1", class: "form-check-input" %>
+                   <%= label_tag "flexRadioDefault1", class: "form-check-label" do %>
+                      Express delivery <br />
+                      <small class='text-muted'>3-4 days via Fedex </small>
+                   <% end %>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-3">
+                <!-- Default radio -->
+                <div class="form-check h-100 border rounded-3">
+                  <div class="p-3">
+                   <%= radio_button_tag "delivery_type", "post_office", false, id: "flexRadioDefault2", class: "form-check-input" %>
+                    <%= label_tag "flexRadioDefault2", class: "form-check-label" do %>
+                      Post office <br />
+                      <small class='text-muted'>20-30 days via post </small>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-3">
+                <!-- Default radio -->
+                <div class="form-check h-100 border rounded-3">
+                  <div class="p-3">
+                    <%= radio_button_tag "delivery_type", "self_pickup", false, id: "flexRadioDefault3", class: "form-check-input" %>
+                    <%= label_tag "flexRadioDefault3",class: "form-check-label" do %>
+                    Self pick-up <br>
+                    <small class='text-muted'>Come to our shop </small>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-8 mb-3">
+                <p class="mb-0">Address</p>
+                <div class="form-outline">
+                  <%= text_field_tag "address", nil, id: "address", class: "form-control", placeholder: "Type here" %>
+                </div>
+              </div>
+
+              <div class="col-sm-4 mb-3">
+                <p class="mb-0">City</p>
+                <%= select_tag "city", options_for_select(["New York", "Moscow", "Samarqand"]), class: "form-select" %>
+              </div>
+
+              <div class="col-sm-4 mb-3">
+                <p class="mb-0">House</p>
+                <div class="form-outline">
+                  <%= text_field_tag "house", nil, id: "house", class: "form-control", placeholder: "Type here" %>
+                </div>
+              </div>
+
+              <div class="col-sm-4 col-6 mb-3">
+                <p class="mb-0">Postal code</p>
+                <div class="form-outline">
+                  <%= text_field_tag "postal_code", nil, id: "postal_code", class: "form-control" %>
+                </div>
+              </div>
+
+              <div class="col-sm-4 col-6 mb-3">
+                <p class="mb-0">Zip</p>
+                <div class="form-outline">
+                  <%= text_field_tag "zip", nil, id: "zip", class: "form-control" %>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-check mb-3">
+              <%= check_box_tag "save_address", "yes", false, id: "flexCheckDefault1" %>
+              <%= label_tag "flexCheckDefault1", "Save this address", class: "form-check-label" %>
+            </div>
+
+            <div class="mb-3">
+              <p class="mb-0">Message to seller</p>
+              <div class="form-outline">
+                <%= text_area_tag "message", nil, id: "message", class: "form-control", rows: 2 %>
+              </div>
+            </div>
+
+            <div class="float-end">
+              <%= button_tag "Cancel", type: "button", class: "btn btn-light border" %>
+              <%= button_tag "Continue", type: "submit", class: "btn btn-success shadow-0 border" %>
+            </div>
+          </div>
+        </div>
+        <!-- Checkout -->
+      </div>
+      <div class="col-xl-4 col-lg-4 d-flex justify-content-center justify-content-lg-end">
+        <div class="ms-lg-4 mt-4 mt-lg-0" style="max-width: 320px;">
+          <h6 class="mb-3">Summary</h6>
+          <div class="d-flex justify-content-between">
+            <p class="mb-2">Total price:</p>
+            <p class="mb-2"><%= number_to_currency(@cart.orderables.sum(&:total)) %></p>
+          </div>
+          <div class="d-flex justify-content-between">
+            <p class="mb-2">Discount:</p>
+            <p class="mb-2 text-danger">- <%= number_to_currency(@discount) %></p>
+          </div>
+          <div class="d-flex justify-content-between">
+            <p class="mb-2">Shipping cost:</p>
+            <p class="mb-2">+ <%= number_to_currency(@shipping_cost) %></p>
+          </div>
+          <hr />
+          <div class="d-flex justify-content-between">
+            <p class="mb-2">Total price:</p>
+            <p class="mb-2 fw-bold"><%= number_to_currency(@total_price) %></p>
+          </div>
+
+          <div class="input-group mt-3 mb-4">
+            <%= text_field_tag "promo_code", nil, class: "form-control border", placeholder: "Promo code" %>
+            <%= button_tag "Apply", type: "button", class: "btn btn-light text-primary border" %>
+          </div>
+
+          <hr />
+          <h6 class="text-dark my-4">Items in cart</h6>
+            <% @cart.orderables.each do |orderable| %>
+              <% product = orderable.product %>
+             <div class="d-flex align-items-center mb-4">
+            <div class="me-3 position-relative">
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill badge-secondary">
+               <%= orderable.quantity %>
+              </span>
+             <% if product.image.attached? %>
+                <%= image_tag product.image, class: "img-sm rounded border", style: "height: 96px; width: 96x; height: 80px;" %>
+            <% end %>
+            </div>
+            <div class="">
+              <a href="#" class="nav-link">
+                <%= product.name %>
+              </a>
+            <div class="price text-muted">Total: $<%= orderable.total %></div>
+            </div>
+            </div>
+              <!-- Display other information about the product, such as name, price, etc. -->
+            <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%= render 'shared/footer' %>
